@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: 'DM Sans', sans-serif; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f8fc; }
+button, input, select { font: inherit; }
+h1, h2, h3, .font-bold { font-family: 'Manrope', sans-serif; }
+.input-dark { width: 100%; border: 1px solid rgba(255,255,255,.12); border-radius: .65rem; background: rgba(255,255,255,.06); padding: .65rem .8rem; color: white; outline: none; transition: border-color .2s, background .2s; }
+.input-dark:focus { border-color: rgba(52,211,153,.8); background: rgba(255,255,255,.1); }
+.input-dark option { color: #11233c; }
+input[type="range"] { accent-color: #1fa774; height: 4px; cursor: pointer; }
+.tab-button { display: flex; align-items: center; gap: .55rem; border-bottom: 2px solid transparent; padding: .9rem 1rem; color: #718096; font-size: .8rem; font-weight: 600; white-space: nowrap; transition: color .2s, border-color .2s; }
+.tab-button:hover { color: #10345e; }
+.tab-active { color: #09213f; border-bottom-color: #1fa774; }
+.button-secondary, .button-outline { display: inline-flex; align-items: center; gap: .45rem; border-radius: .6rem; padding: .6rem .85rem; font-size: .75rem; font-weight: 700; transition: all .2s; }
+.button-primary { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; border-radius: .6rem; background: #09213f; color: white; padding: .7rem 1rem; font-size: .75rem; font-weight: 700; transition: all .2s; }
+.button-primary:hover { background: #10345e; transform: translateY(-1px); }
+.button-secondary { background: white; color: #15845b; box-shadow: 0 2px 8px rgba(12,39,72,.06); }
+.button-secondary:hover { transform: translateX(2px); }
+.button-outline { border: 1px solid #dbe4ee; color: #10345e; background: white; }
+.button-outline:hover { border-color: #10345e; background: #f5f8fc; }
+.eyebrow { color: #15845b; font-size: .7rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.sidebar { position: fixed; inset: 0 auto 0 0; z-index: 40; display: flex; width: 292px; height: 100dvh; max-height: 100dvh; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; background: #06172d; padding: 2rem 1.75rem 1.5rem; color: white; box-shadow: 10px 0 28px rgba(6,23,45,.06); scrollbar-width: thin; scrollbar-color: rgba(148,163,184,.35) transparent; }
+.sidebar::-webkit-scrollbar { width: 5px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(148,163,184,.35); }
+.sidebar > * { flex-shrink: 0; }
+.sidebar > :last-child { margin-top: 2.5rem; }
+.back-link { display: inline-flex; align-items: center; gap: .5rem; color: #15845b; font-size: .8rem; font-weight: 700; transition: color .2s; }
+.back-link:hover { color: #09213f; }
+.mobile-scrim { position: fixed; inset: 0; z-index: 30; background: rgba(6,23,45,.5); }
+.animate-in { animation: rise .35s ease-out both; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1023px) {
+  .sidebar { width: min(88vw, 340px); padding: 1.5rem 1.25rem 1.25rem; transform: translateX(-105%); transition: transform .25s ease; box-shadow: 16px 0 40px rgba(6,23,45,.18); }
+  .sidebar > :last-child { margin-top: 1.25rem; }
+  .sidebar .mt-12 { margin-top: 2rem; }
+  .sidebar .mt-8 { margin-top: 1.5rem; }
+  .sidebar .space-y-7 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.25rem; }
+  .sidebar .leading-6 { line-height: 1.5rem; }
+  .sidebar .p-4 { padding: .8rem 1rem; }
+  .sidebar-open { transform: translateX(0); }
+}
+@media (max-width: 640px) {
+  .tab-button { padding: .8rem .75rem; font-size: .72rem; }
+  .button-primary, .button-secondary, .button-outline { min-height: 42px; }
+  .sidebar { width: min(92vw, 360px); }
+  .sidebar .mt-12 { margin-top: 1.5rem; }
+  .sidebar .mt-8 { margin-top: 1.25rem; }
+  .sidebar .space-y-7 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
+}
